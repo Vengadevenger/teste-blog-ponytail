@@ -26,7 +26,7 @@ export default function BlogSidebar({ categories, activeCategory }) {
       <div className="blog-sidebar-cta">
         <p>Bola furou de novo?</p>
         <Link href="/comprar" className="blog-sidebar-cta-btn">
-          Compre Cola Bola
+          Saiba Mais
         </Link>
       </div>
     </aside>
