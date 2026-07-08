@@ -139,7 +139,7 @@
 
 .blog-sidebar-cta-btn {
   display: inline-block;
-  background: var(--cb-yellow);
+  background:  #22c55e;
   color: var(--cb-black);
   font-weight: 700;
   padding: 10px 20px;
@@ -496,7 +496,7 @@
 
 .blog-post-cta-btn {
   display: inline-block;
-  background: var(--cb-yellow);
+  background: #22c55e;
   color: var(--cb-black);
   font-weight: 700;
   padding: 12px 28px;
