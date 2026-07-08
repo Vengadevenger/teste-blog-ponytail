@@ -115,7 +115,7 @@ export default async function BlogPostPage({ params }) {
             <h3>Bola furada de novo?</h3>
             <p>Consertar em casa é mais rápido e mais barato do que comprar outra.</p>
             <Link href="/comprar" className="blog-post-cta-btn">
-              Compre Cola Bola
+              Saiba Mais
             </Link>
           </div>
 
