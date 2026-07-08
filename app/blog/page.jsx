@@ -1,23 +1,11 @@
-import { getAllCategories, getPaginatedPosts } from "@/lib/blog-data";
-import BlogCard from "@/components/blog/BlogCard";
-import CategoryFilter from "@/components/blog/CategoryFilter";
-import Pagination from "@/components/blog/Pagination";
-import Breadcrumb from "@/components/blog/Breadcrumb";
+import { getPaginatedPosts, buildBlogPageHref } from "@/lib/blog-data";
+import BlogListingBody from "@/components/blog/BlogListingBody";
 
 export const metadata = {
   title: "Blog",
   description:
     "Dicas, novidades e conteúdo sobre futebol, vôlei, basquete e manutenção de bolas esportivas. Pelo time da Cola Bola.",
 };
-
-/** Monta a URL de uma página de listagem preservando categoria/busca ativas. */
-function buildPageHref(page, params) {
-  const query = new URLSearchParams(params);
-  query.delete("page");
-  const queryString = query.toString();
-  const base = page <= 1 ? "/blog" : `/blog/page/${page}`;
-  return queryString ? `${base}?${queryString}` : base;
-}
 
 export default async function BlogListingPage({ searchParams }) {
   const resolvedParams = await searchParams;
@@ -29,7 +17,6 @@ export default async function BlogListingPage({ searchParams }) {
     category,
     query,
   });
-  const categories = getAllCategories();
 
   const breadcrumbItems = [
     { label: "Blog", href: "/blog" },
@@ -37,28 +24,15 @@ export default async function BlogListingPage({ searchParams }) {
   ];
 
   return (
-    <div className="blog-listing">
-      <Breadcrumb items={breadcrumbItems} />
-
-      <CategoryFilter categories={categories} activeCategory={category} />
-
-      {totalPosts === 0 ? (
-        <p className="blog-empty-state">Nenhum post encontrado. Tente outra categoria ou termo de busca.</p>
-      ) : (
-        <>
-          <div className="blog-grid">
-            {posts.map((post) => (
-              <BlogCard key={post.id} post={post} />
-            ))}
-          </div>
-
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            buildHref={(page) => buildPageHref(page, resolvedParams)}
-          />
-        </>
-      )}
-    </div>
+    <BlogListingBody
+      breadcrumbItems={breadcrumbItems}
+      category={category}
+      query={query}
+      posts={posts}
+      totalPosts={totalPosts}
+      currentPage={currentPage}
+      totalPages={totalPages}
+      buildHref={(page) => buildBlogPageHref(page, resolvedParams)}
+    />
   );
 }

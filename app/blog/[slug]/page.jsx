@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }) {
   };
 
   return (
-    <article className="blog-post">
+    <article>
       {/* eslint-disable-next-line react/no-danger */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
@@ -121,7 +121,7 @@ export default async function BlogPostPage({ params }) {
 
           <nav className="blog-post-adjacent-nav">
             {previous ? (
-              <Link href={`/blog/${previous.slug}`} className="blog-post-adjacent-link blog-post-adjacent-prev">
+              <Link href={`/blog/${previous.slug}`} className="blog-post-adjacent-link">
                 <span>← Post anterior</span>
                 <strong>{previous.title}</strong>
               </Link>

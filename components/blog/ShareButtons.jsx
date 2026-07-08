@@ -48,12 +48,12 @@ export default function ShareButtons({ title, url }) {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`blog-share-btn blog-share-btn-${link.name.toLowerCase()}`}
+            className="blog-share-btn"
           >
             {link.name}
           </a>
         ))}
-        <button type="button" className="blog-share-btn blog-share-btn-copy" onClick={handleCopyLink}>
+        <button type="button" className="blog-share-btn" onClick={handleCopyLink}>
           {copied ? "Link copiado!" : "Copiar link"}
         </button>
       </div>

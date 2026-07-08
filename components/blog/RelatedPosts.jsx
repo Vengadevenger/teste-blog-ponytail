@@ -11,7 +11,7 @@ export default function RelatedPosts({ posts }) {
       <h3 className="blog-sidebar-widget-title">Posts Relacionados</h3>
       <ul className="blog-related-list">
         {posts.map((post) => (
-          <li key={post.slug} className="blog-related-item">
+          <li key={post.slug}>
             <Link href={`/blog/${post.slug}`} className="blog-related-link">
               <div className="blog-related-image-wrapper">
                 <Image
