@@ -21,6 +21,10 @@ yarn-error.log*
 .env*.local
 .env
 
+# dashboard SEO (dados locais — só o README é versionado)
+/.seo-dashboard/*
+!/.seo-dashboard/README.md
+
 # vercel
 .vercel
 
